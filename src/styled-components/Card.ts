@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Card } from '../components/Card/Card';
+import { getTypePokemon } from '../helpers';
 
 export const CardContainer = styled.div`
   background-color: #fff;
@@ -41,7 +43,36 @@ export const CardTitle = styled.h2`
   text-transform: capitalize;
 `;
 
-export const CardContent = styled.p`
+export const CardContent = styled.div`
   font-size: 14px;
   color: #333;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const CardContentWeight = styled.span`
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+`;
+
+export const CardContentAbilitiesContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+`;
+
+export const CardContentAbilities = styled.span`
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid #333;
 `;

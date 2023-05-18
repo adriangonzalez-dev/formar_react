@@ -1,18 +1,24 @@
-import { CardContent as CardContainer } from '../../styled-components/Card'
-import { Ability } from '../../interfaces/pokemon-interface'
+import { CardContent as CardContainer, CardContentAbilities, CardContentAbilitiesContainer, CardContentWeight } from '../../styled-components/Card'
+import { Ability } from '../../interfaces/pokemon-interface';
+import { ContentDivider } from '..'
 
 interface Props {
     weight: number,
-    abilities: Ability[]
+    abilities: Ability[],
 }
 
 export const CardContent = ({weight, abilities}:Props) => {
   return (
       <CardContainer>
-          {weight}
+        <ContentDivider title="Habilidades"/>
+        <CardContentAbilitiesContainer>
           {
-              abilities.map((ability: Ability) => <span key={ability.ability.name}>{ability.ability.name}</span>)
+              abilities.map((ability: Ability) => <CardContentAbilities key={ability.ability.name}>{ability.ability.name}</CardContentAbilities>)
           }
+        </CardContentAbilitiesContainer>
+        <CardContentWeight>
+            Peso: {weight}kg
+        </CardContentWeight>
       </CardContainer>
   )
 }
