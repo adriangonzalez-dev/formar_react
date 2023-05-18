@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root{
+  --tipo-acero:#A8A8C0;
+  --tipo-agua:#3899F8;
+  --tipo-bicho:#A8B820;
+  --tipo-dragon:#7860E0;
+  --tipo-electrico:#F8D030;
+  --tipo-fantasma:#6060B0;
+  --tipo-fuego:#F05030;
+  --tipo-hada:#E79FE7;
+  --tipo-hielo:#58C8E0;
+  --tipo-lucha:#A05038;
+  --tipo-normal:#A8A090;
+  --tipo-planta:#78C850;
+  --tipo-psiquico:#F870A0;
+  --tipo-roca:#B8A038;
+  --tipo-siniestro:#705848;
+  --tipo-tierra:#E9D6A4;
+  --tipo-veneno:#B058A0;
+  --tipo-volador:#98A8F0;
+  --fuente-principal:'Roboto Mono', monospace;
+
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  width: 100vw;
+  height: 100vh;
+}
+
+body,#root{
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  font-family: var(--fuente-principal);
+}
