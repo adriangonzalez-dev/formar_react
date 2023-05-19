@@ -16,3 +16,11 @@ export const AppContainer = styled.div`
     background-position: center;
     background-attachment: fixed;
 `;
+
+export const LoadingContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+`;

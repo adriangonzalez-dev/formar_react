@@ -17,7 +17,7 @@ export const pokemonSlice = createSlice({
         state.isLoading = true
     },
     setPokemons: (state, action) => {
-      state.data = action.payload.results
+      state.data = [...state.data, ...action.payload.results]
       state.next = action.payload.next
       state.previous = action.payload.previous
       state.isLoading = false
@@ -40,4 +40,4 @@ export const {
   setPokemons, 
   addSelectedPokemons,
   removeSelectedPokemons,
-  deleteSelectedPokemons } = pokemonSlice.actions
+  deleteSelectedPokemons, } = pokemonSlice.actions
