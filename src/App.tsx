@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Ref, RefObject, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useAppDispatch, useAppSelector, useVisible } from "./hooks"
 import { setPokemonsApi } from './store/slices/pokemons/thunks';
 import { Header, Card, Title, Spinner, Modal } from "./components";
