@@ -1,4 +1,4 @@
-export const getTypePokemon = (typePokemon: string | undefined) => {
+export const getTypePokemon = (typePokemon: string | undefined):string => {
     switch (typePokemon) {
       case 'fire':
         return 'var(--tipo-fuego)';

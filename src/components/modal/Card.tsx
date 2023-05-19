@@ -1,8 +1,13 @@
 
 import { getTypePokemon } from '../../helpers'
-import { usePokemon } from '../../hooks/usePokemon'
-import { ModalCard,CardContent,CardTitle, CardDescription, CardTypes } from '../../styled-components/Modal'
-import { Spinner } from '../Spinner/Spinner'
+import { usePokemon } from '../../hooks'
+import { 
+    ModalCard, 
+    CardContent,
+    CardTitle, 
+    CardDescription, 
+    CardTypes } from '../../styled-components/Modal'
+import { Spinner } from '../index'
 
 interface Props {
     name: string

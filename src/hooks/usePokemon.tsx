@@ -6,14 +6,20 @@ interface Props {
     name: string
 }
 
+interface InitialState {
+    data: Pokemon,
+    isLoading: boolean,
+}
+
+const initialState:InitialState = {
+    data: {} as Pokemon,
+    isLoading: true,
+}
 
 export const usePokemon = ({name}:Props) => {
-    const [pokemon, setPokemon] = useState<PokemonResponse>({
-        data: {} as Pokemon,
-        isLoading: true,
-    })
+    const [pokemon, setPokemon] = useState<PokemonResponse>(initialState)
 
-    const getPokemonApi = async (name:string) => {
+    const getPokemonApi = async (name:string):Promise<void> => {
         const data:Pokemon = await getPokemon(name)
         setPokemon({
             data,
@@ -24,5 +30,6 @@ export const usePokemon = ({name}:Props) => {
     useEffect(() => {
         getPokemonApi(name)
     }, [name])
-  return {pokemon}
+
+  return { pokemon }
 }

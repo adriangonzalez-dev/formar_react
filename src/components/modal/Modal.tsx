@@ -1,9 +1,14 @@
 //create ract with typescript component with name Modal
 // import { Props } from './Modal.types'
 import { useEffect, useState } from 'react';
-import { ContentDivider } from '..'
-import { Container, ModalCloseButton, ModalContainer, ModalContent, ModalTitle } from '../../styled-components/Modal'
-import {CloseIcon} from '../svg/CloseIcon'
+import { ContentDivider } from '../index'
+import { 
+    Container, 
+    ModalCloseButton, 
+    ModalContainer, 
+    ModalContent, 
+    ModalTitle } from '../../styled-components/Modal'
+import { CloseIcon } from '../svg'
 import { Card } from './Card';
 import { SearchBar } from './SearchBar';
 import { getAllAbilities, getAllPokemons } from '../../api/pokemons';
@@ -20,12 +25,12 @@ export const Modal = ({show}:Props) => {
     const [loading, setLoading] = useState<boolean>(false);
     const [resultSearch, setResultSearch] = useState<Result[] | AbilitiyResponse[] | undefined>([]);
 
-    const getResults = async () => {
+    const getResults = async ():Promise<void> => {
         setLoading(true)
         try {
-            const dataPokemons = await getAllPokemons()
+            const dataPokemons:Result[] = await getAllPokemons()
             setPokemons(dataPokemons)
-            const dataAbilities = await getAllAbilities()
+            const dataAbilities:ListAbilitiesResponse = await getAllAbilities()
             setAbilities(dataAbilities)
         } catch (error) {
             console.log(error)

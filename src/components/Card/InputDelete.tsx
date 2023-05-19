@@ -1,5 +1,5 @@
 import {ChangeEvent, useState} from 'react'
-import { DeleteIcon } from '../svg/DeleteIcon'
+import { DeleteIcon } from '../svg'
 import { Checkbox, CheckboxInput, CheckboxLabel } from '../../styled-components/Card'
 import { addSelectedPokemons, removeSelectedPokemons } from '../../store/slices/pokemons/pokemons'
 import { useAppDispatch } from '../../hooks'
@@ -9,9 +9,8 @@ interface Props {
 }
 
 export const InputDelete = ({id, name}:Props) => {
-    const [checked,setChecked] = useState(false)
+    const [checked,setChecked] = useState<boolean>(false)
     const dispatch = useAppDispatch()
-
     const addPokemon = (e:ChangeEvent<HTMLInputElement>) => {
         e.target.checked ? dispatch(addSelectedPokemons({name})) : dispatch(removeSelectedPokemons({name}))
         setChecked(e.target.checked)

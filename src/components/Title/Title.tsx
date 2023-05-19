@@ -5,7 +5,7 @@ import { Button, TitleContainer, TitleText } from "../../styled-components/Title
 export const Title = () => {
     const dispatch = useAppDispatch()
     const {selected} = useAppSelector(state => state.pokemons)
-    const disabled = selected.length === 0
+    const disabled:boolean = selected.length === 0
   return (
     <TitleContainer>
         <TitleText>Todos los Pokemons!</TitleText>

@@ -16,8 +16,6 @@ export interface PokemonInitialState {
     isLoading: boolean,
     next: string,
     previous: string,
-    searchPokemons: Result[],
-    searchLoading: boolean,
 }
 
 export interface PokemonResponse {
