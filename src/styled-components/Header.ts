@@ -28,11 +28,3 @@ export const ImageLogo = styled.img`
   height: 80px;
 `;
 
-export const SearchInput = styled.input`
-  padding: 8px;
-  border: none;
-  border-radius: 4px;
-  &:hover {
-    outline: 2px solid var(--tipo-acero);
-  }
-`;

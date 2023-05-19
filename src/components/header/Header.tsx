@@ -1,12 +1,18 @@
-import { ImageLogo, Logo, NavbarContainer, SearchInput } from "../../styled-components/Header";
+import { ImageLogo, Logo, NavbarContainer } from "../../styled-components/Header";
+import { Button } from "../../styled-components/Title";
 
-export const Header = () => {
+interface Props {
+  openModal: () => void;
+}
+
+export const Header = ({openModal}:Props) => {
   return (
     <NavbarContainer>
       <Logo>
         <ImageLogo src="https://www.freepnglogos.com/uploads/pok-mon-go-logo-png-30.png" alt="Pokémon logo" />
       </Logo>
-      <SearchInput type="text" placeholder="Buscar por nombre o habilidad" />
+      <Button
+      onClick={openModal}>Buscar</Button>
     </NavbarContainer>
   );
 };

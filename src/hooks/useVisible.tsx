@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, RefObject } from "react";
 
 export const useVisible = <T extends HTMLElement>(ref: RefObject<T>): boolean => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
+    const observer:IntersectionObserver = new IntersectionObserver(([entry]) => {
       setIsVisible(entry.isIntersecting);
     });
 

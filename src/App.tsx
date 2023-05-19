@@ -8,13 +8,19 @@ import { AppContainer, LoadingContainer } from "./styled-components/App";
 import { Title } from "./components/Title/Title";
 import { useVisible } from "./hooks/useVisible";
 import { Spinner } from "./components/Spinner/Spinner";
+import { Modal } from "./components/modal/Modal";
 
 export const App = () => {
   const dispatch = useAppDispatch()
   const [page, setPage] = useState(0)
+  const [showModal, setShowModal] = useState(false)
   const {data} = useAppSelector(state => state.pokemons)
   const visorRef = useRef(null)
   const isVisible = useVisible(visorRef)
+
+  const showModalHandler = () => {
+    setShowModal(!showModal)
+  }
 
   const getMorePokemons = () => {
     setPage(page + 1)
@@ -31,7 +37,7 @@ export const App = () => {
   }, [isVisible])
   return (
     <>
-      <Header/>
+      <Header openModal={showModalHandler}/>
         <Title/>
        <AppContainer id='infiniteScroll'>
           {data.map((pokemon,index) => (
@@ -42,6 +48,9 @@ export const App = () => {
           <p>Cargando...</p>
         </LoadingContainer>
        </AppContainer>
+       {
+          showModal && <Modal show={showModalHandler}/>
+       }
     </>
   )
 }

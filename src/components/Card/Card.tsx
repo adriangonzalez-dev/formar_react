@@ -5,28 +5,14 @@ import { PokemonResponse, Pokemon, Ability } from '../../interfaces/pokemon-inte
 import { getPokemon } from "../../api/pokemons";
 import { Spinner } from "../Spinner/Spinner";
 import { InputDelete } from "./InputDelete";
+import { usePokemon } from "../../hooks/usePokemon";
 
 interface Props {
     name: string
 }
 
 export const Card = ({name}:Props) => {
-    const [pokemon, setPokemon] = useState<PokemonResponse>({
-        data: {} as Pokemon,
-        isLoading: true,
-    })
-
-    const getPokemonApi = async (name:string) => {
-        const data:Pokemon = await getPokemon(name)
-        setPokemon({
-            data,
-            isLoading: false,
-        })
-    }
-
-    useEffect(() => {
-        getPokemonApi(name)
-    }, [name])
+  const {pokemon} = usePokemon({name})
 
   return (
       <CardContainer >

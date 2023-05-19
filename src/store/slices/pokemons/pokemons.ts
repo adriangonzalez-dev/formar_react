@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { PokemonInitialState } from '../../../interfaces/pokemon-interface';
+import { PokemonInitialState, Result } from '../../../interfaces/pokemon-interface';
 
 const initialState:PokemonInitialState = {
   data: [],
@@ -7,6 +7,8 @@ const initialState:PokemonInitialState = {
   isLoading: false,
   next: '',
   previous: '',
+  searchPokemons: [],
+  searchLoading: false,
 }
 
 export const pokemonSlice = createSlice({
@@ -31,6 +33,12 @@ export const pokemonSlice = createSlice({
     deleteSelectedPokemons: (state) => {
       state.data = state.data = state.data.filter((item) => !state.selected.includes(item.name))
       state.selected = initialState.selected
+    },
+    setLoadingSearchPokemons : (state) => {
+      state.searchLoading = true
+    },
+    searchPokemons : (state, action) => {
+      state.searchPokemons = action.payload
     }
   },
 })
@@ -40,4 +48,6 @@ export const {
   setPokemons, 
   addSelectedPokemons,
   removeSelectedPokemons,
-  deleteSelectedPokemons, } = pokemonSlice.actions
+  deleteSelectedPokemons,
+  setLoadingSearchPokemons,
+  searchPokemons } = pokemonSlice.actions
