@@ -9,6 +9,8 @@ import { Title } from "./components/Title/Title";
 import { useVisible } from "./hooks/useVisible";
 import { Spinner } from "./components/Spinner/Spinner";
 import { Modal } from "./components/modal/Modal";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export const App = () => {
   const dispatch = useAppDispatch()
@@ -25,7 +27,11 @@ export const App = () => {
   const getMorePokemons = () => {
     setPage(page + 1)
   }
-
+  useEffect(() => {
+    AOS.init({
+      duration: 1000
+    })
+  }, [])
   useEffect(() => {
     dispatch(setPokemonsApi(page))
   }, [page])

@@ -1,21 +1,20 @@
-import { useEffect, useState } from "react"
 import { CardContent } from "./CardContent";
 import { CardContainer, CardContainerContent, CardImage, CardTitle } from '../../styled-components/Card';
-import { PokemonResponse, Pokemon, Ability } from '../../interfaces/pokemon-interface';
-import { getPokemon } from "../../api/pokemons";
 import { Spinner } from "../Spinner/Spinner";
 import { InputDelete } from "./InputDelete";
 import { usePokemon } from "../../hooks/usePokemon";
-
 interface Props {
     name: string
 }
 
+
 export const Card = ({name}:Props) => {
-  const {pokemon} = usePokemon({name})
+    const {pokemon} = usePokemon({name})
+    
 
   return (
-      <CardContainer >
+      <CardContainer data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom">
         {
             pokemon.isLoading
             ?

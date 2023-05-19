@@ -5,7 +5,7 @@ export const CardContainer = styled.div`
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 16px;
-  width: 20%;
+  width: 250px;
   height: auto;
   min-height: 300px;
   display: flex;
@@ -13,12 +13,7 @@ export const CardContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
-  @media (max-width: 850px) { 
-    width: 30%;
-   }
-  @media (max-width: 545px) { 
-   width: 40%;
-  }
+
   @media (max-width: 420px) { 
     width: 100%;
    }
