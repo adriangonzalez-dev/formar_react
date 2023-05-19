@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 export const instancePokemon = axios.create({
-    baseURL: import.meta.env.VITE_URL_API,
+    baseURL: 'https://pokeapi.co/api/v2/pokemon/',
 });
 
 export const instanceAbility = axios.create({
-    baseURL: import.meta.env.VITE_URL_API_ABILITY,
+    baseURL: 'https://pokeapi.co/api/v2/ability/',
 });

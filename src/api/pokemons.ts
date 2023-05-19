@@ -1,4 +1,4 @@
-import { AbilitiyResponse, ListAbilitiesResponse,Result as ResultAbilities } from "../interfaces/abilities-interface";
+import { AbilitiyResponse, ListAbilitiesResponse } from "../interfaces/abilities-interface";
 import { ApiPokemonResponse, Pokemon, Result } from "../interfaces/pokemon-interface";
 import { instanceAbility, instancePokemon } from "./base";
 
