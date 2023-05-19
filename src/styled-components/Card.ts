@@ -1,18 +1,18 @@
 import styled from 'styled-components';
-import { Card } from '../components/Card/Card';
-import { getTypePokemon } from '../helpers';
 
 export const CardContainer = styled.div`
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 16px;
   width: 20%;
-  height: 280px;
+  height: auto;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   @media (max-width: 850px) { 
     width: 30%;
    }
@@ -76,3 +76,26 @@ export const CardContentAbilities = styled.span`
   border-radius: 4px;
   border: 1px solid #333;
 `;
+
+export const Checkbox = styled.div`
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: fit-content;
+  
+`
+export const CheckboxInput = styled.input`
+   display: none;
+    &:checked + label {
+      background-color: var(--tipo-fuego);
+      color: white;
+      width: fit-content;
+    }
+`
+export const CheckboxLabel = styled.label`
+  display: flex;
+  height: fit-content;
+  border-radius: 5px;
+  cursor: pointer;
+
+`

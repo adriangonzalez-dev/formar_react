@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import pikachu from '../assets/pikachu.webp'
 
 export const AppContainer = styled.div`
     display: flex;
@@ -8,7 +9,10 @@ export const AppContainer = styled.div`
     flex-wrap: wrap;
     gap: 16px;
     align-items: center;
-    background-color: #f5f5f5;
     min-height: 100vh;
     padding: 16px;
+    background-image: url(${pikachu});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 `;

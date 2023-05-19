@@ -3,13 +3,14 @@ import { PokemonInitialState } from '../../../interfaces/pokemon-interface';
 
 const initialState:PokemonInitialState = {
   data: [],
+  selected: [],
   isLoading: false,
   next: '',
   previous: '',
 }
 
 export const pokemonSlice = createSlice({
-  name: 'counter',
+  name: 'Pokemon',
   initialState,
   reducers: {
     startLoadingPokemons: (state) => {
@@ -21,7 +22,22 @@ export const pokemonSlice = createSlice({
       state.previous = action.payload.previous
       state.isLoading = false
     },
+    addSelectedPokemons: (state, action) => {
+      state.selected.push(action.payload.name)
+    },
+    removeSelectedPokemons: (state, action) => {
+      state.selected = state.selected.filter((item) => item !== action.payload.name)
+    },
+    deleteSelectedPokemons: (state) => {
+      state.data = state.data = state.data.filter((item) => !state.selected.includes(item.name))
+      state.selected = initialState.selected
+    }
   },
 })
 
-export const { startLoadingPokemons, setPokemons } = pokemonSlice.actions
+export const { 
+  startLoadingPokemons, 
+  setPokemons, 
+  addSelectedPokemons,
+  removeSelectedPokemons,
+  deleteSelectedPokemons } = pokemonSlice.actions

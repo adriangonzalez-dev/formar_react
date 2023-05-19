@@ -12,6 +12,7 @@ export interface Result {
 
 export interface PokemonInitialState {
     data: Result[],
+    selected: string[],
     isLoading: boolean,
     next: string,
     previous: string,

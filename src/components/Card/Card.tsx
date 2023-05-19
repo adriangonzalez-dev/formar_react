@@ -3,6 +3,8 @@ import { CardContent } from "./CardContent";
 import { CardContainer, CardContainerContent, CardImage, CardTitle } from '../../styled-components/Card';
 import { PokemonResponse, Pokemon, Ability } from '../../interfaces/pokemon-interface';
 import { getPokemon } from "../../api/pokemons";
+import { Spinner } from "../Spinner/Spinner";
+import { InputDelete } from "./InputDelete";
 
 interface Props {
     name: string
@@ -26,18 +28,25 @@ export const Card = ({name}:Props) => {
         getPokemonApi(name)
     }, [name])
 
-    if(pokemon.isLoading) return <h4>Cargando...</h4>
-
   return (
       <CardContainer >
-          <CardTitle>
-              {pokemon.data.name}
-          </CardTitle>
-          <CardImage src={pokemon.data.sprites.front_default} alt="" loading="lazy"/>
-          <CardContainerContent >
-            <CardContent weight={pokemon.data.height} abilities={pokemon.data.abilities}/>
-          </CardContainerContent>
-          <input type="checkbox"/>
+        {
+            pokemon.isLoading
+            ?
+                <Spinner/>
+            :
+                  <>
+                      <CardTitle>
+                          {pokemon.data.name}
+                      </CardTitle>
+                      <InputDelete id={pokemon.data.id} name={pokemon.data.name}/>
+                      <CardImage src={pokemon.data.sprites.front_default} alt="" loading="lazy" />
+                      <CardContainerContent >
+                          <CardContent weight={pokemon.data.height} abilities={pokemon.data.abilities} />
+                      </CardContainerContent>
+                  </>
+        }
+          
       </CardContainer> 
   )
 }
